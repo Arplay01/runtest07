@@ -1,13 +1,131 @@
 @import "~normalize.css";
 
-@import "_variables";
+/* @import "_variables"; */
 @import "modules/hello.scss";
 
-body {
-  background: $wtf;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
+* {
+  box-sizing: border-box;
 }
+
+.wrapper {
+  padding: 5em 8em;
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1455798736971-37acee91c6d0?dpr=2&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=') no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  
+  .text {
+    font-size: 1.5em;
+    margin-bottom: 5em;
+    
+    h1, p {
+      color: white;
+      text-align: center;
+      margin: 0;
+      letter-spacing: 2px;
+    }
+  
+    p { 
+      font-size: 1em;
+      font-weight: 300;
+    }
+  }
+  
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+  .row {
+    display: flex;
+    flex-direciton: row;
+    position: relative;
+  }
+  
+  .left {
+    .row:nth-child(2) {
+      left: 1em;
+    }
+
+    .row:nth-child(3) {
+      left: 2em;
+    }
+  }
+  
+  .right {
+    .row:nth-child(2) {
+      left: -1em;
+    }
+
+    .row:nth-child(3) {
+      left: -2em;
+    }
+  }
+  
+  .key {
+    color: rgb(22,20,21);
+    text-align: center;
+    width: 5em;
+    height: 5em;
+    background: rgba(255,255,255, .8);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0, .5);
+    margin: .5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: .05s linear;
+    
+    p {
+      margin: 0 0 .3em 0;
+      font-weight: 700;
+    }
+    
+    p:first-child {
+      font-size: 2em;
+    }
+    
+    p:last-child {
+      font-size: .8em;
+      color: rgb(102,100,100);
+    }
+  }
+  
+  .metronome {
+    transform: scale(1.2);
+    position: relative;
+    top: 3.5em;
+    cursor: pointer;
+    
+    span {
+      width: 1.5em;
+      height: .5em;
+      background: #B4B4B4;
+      border: 1px solid #ADADAD;
+      border-radius: 10px;
+      margin: .5em auto 1em auto;
+      box-shadow: 0 0 10px rgba(0,0,0, .2);
+    }
+    
+    p {
+      font-size: .7em !important;
+    }
+    
+    .metro-on {
+      background: #25DA70;
+      border: none;
+    }
+  }
+}
+
+.playing {
+  transform: scale(1.1);
+  box-shadow: 0 0 5px #FFD52A !important;
+  border: 2px solid #FFD52A;
+}
+  
